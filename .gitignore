@@ -1,0 +1,10 @@
+# Original source doc (keep out of repo)
+Photos_and_Videos.docx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.code-workspace

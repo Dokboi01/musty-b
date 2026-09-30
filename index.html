@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>For Bolaji &mdash; Open this</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a3a6b'/%3E%3Ctext x='16' y='25' text-anchor='middle' font-family='Georgia' font-size='28' fill='%23faf8f3'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: #faf8f3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100svh;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+    .splash-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+    }
+    .wordmark {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(5rem, 20vw, 12rem);
+      font-weight: 700;
+      color: #1a3a6b;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .tagline {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: #7a7a7e;
+      letter-spacing: .04em;
+      font-style: italic;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    .eyebrow {
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: lowercase;
+      color: #b0b0b4;
+    }
+    .open-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      margin-top: 1rem;
+      padding: .9rem 2rem;
+      background: #1a3a6b;
+      color: #faf8f3;
+      text-decoration: none;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: .9rem;
+      letter-spacing: .06em;
+      border-radius: 2rem;
+      transition: background .2s, transform .2s;
+    }
+    .open-btn:hover { background: #2a5298; transform: translateY(-2px); }
+    .divider {
+      width: 3rem;
+      height: 1px;
+      background: #d6e4f7;
+    }
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -2rem;
+      font-size: 1.2rem;
+      opacity: 0;
+      animation: floatUp linear forwards;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes floatUp {
+      0%   { opacity: 0; transform: translateY(0) scale(.8); }
+      10%  { opacity: .7; }
+      80%  { opacity: .4; }
+      100% { opacity: 0; transform: translateY(-110vh) scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <div class="splash-inner">
+    <span class="eyebrow">a birthday surprise for</span>
+    <div class="wordmark">B.</div>
+    <div class="divider"></div>
+    <p class="tagline">There&rsquo;s something here waiting for you.</p>
+    <a class="open-btn" href="main.html">
+      Open it &nbsp;&#8594;
+    </a>
+  </div>
+
+  <script>
+    const emojis = ['&#10084;','&#128149;','&#129505;','&#10024;','&#127881;'];
+    function spawnHeart() {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+      h.style.left = Math.random() * 100 + 'vw';
+      const dur = 4 + Math.random() * 4;
+      h.style.animationDuration = dur + 's';
+      h.style.fontSize = (.8 + Math.random() * 1.2) + 'rem';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), dur * 1000);
+    }
+    setInterval(spawnHeart, 600);
+    for (let i = 0; i < 6; i++) setTimeout(spawnHeart, i * 200);
+  </script>
+</body>
+</html>
+
