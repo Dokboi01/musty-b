@@ -34,6 +34,11 @@ const CONFIG = {
   // Romantic love songs playlist
   songs: [
     {
+      id: '4Z5KKoBGxpJo8YbDcGQXd5',
+      title: 'Secondhand \u2022 Don Toliver ft. Rema',
+      name: 'Secondhand (Rema) 🏎️'
+    },
+    {
       id: '5FG7Tl93LdH117jEKYl3Cm',
       title: 'Essence \u2022 Wizkid ft. Tems',
       name: 'Essence 🇳🇬'
@@ -583,7 +588,7 @@ const songTabs       = document.querySelectorAll('.song-tab');
 const nowPlayingText = document.getElementById('musicNowPlaying');
 const ambientToggle  = document.getElementById('ambientToggle');
 
-let currentTrackId = '5FG7Tl93LdH117jEKYl3Cm'; // Default: Essence
+let currentTrackId = '4Z5KKoBGxpJo8YbDcGQXd5'; // Default: Secondhand (feat. Rema)
 
 // Spotify Embed Toggle
 if (musicToggle && musicEmbed) {
