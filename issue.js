@@ -15,11 +15,20 @@ const CONFIG = {
   // Secret password accepted variations (lowercase)
   validPasswords: ['ife', 'ife mi', 'ifemi', 'favor', 'babe', 'my love'],
 
-  // Special places for Leaflet map
+  // Special places for Leaflet map: Abuja (Musty) & Offa (Favor)
   mapPlaces: [
-    { lat: 6.5244, lng: 3.3792, label: 'Where we first met', note: 'The quiet beginning of everything.' },
-    { lat: 6.5355, lng: 3.3087, label: 'Our favourite spot', note: 'Hours felt like minutes here.' },
-    { lat: 6.4698, lng: 3.5852, label: 'Where it all became real', note: 'Something shifted here forever.' },
+    {
+      lat: 9.0765,
+      lng: 7.3986,
+      label: '📍 Abuja (Musty)',
+      note: 'Counting down the days till I see you again. Missing you from the capital. 💙'
+    },
+    {
+      lat: 8.1491,
+      lng: 4.7206,
+      label: '👑 Offa (Favor)',
+      note: 'Where the most beautiful 20-year-old is celebrating today! 🎉'
+    },
   ],
 
   // Romantic love songs playlist
@@ -145,37 +154,65 @@ tabBtns.forEach(btn => {
   });
 });
 
-// ── 6. PLACES MAP (Leaflet with custom pins) ──────────────────────
+// ── 6. PLACES MAP (Abuja ↔ Offa Bridge) ──────────────────────────
 const mapEl = document.getElementById('placesMap');
 if (mapEl && typeof L !== 'undefined') {
-  const center = [CONFIG.mapPlaces[0].lat, CONFIG.mapPlaces[0].lng];
+  const abujaCoords = [9.0765, 7.3986];
+  const offaCoords  = [8.1491, 4.7206];
+
   const map = L.map('placesMap', {
     scrollWheelZoom: false,
     tap: !L.Browser.mobile,
-  }).setView(center, 12);
+  });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors',
     maxZoom: 18,
   }).addTo(map);
 
-  const icon = L.divIcon({
+  // Custom styled icons
+  const mustyIcon = L.divIcon({
     className: '',
-    html: '<div style="background:#1a3a6b;width:16px;height:16px;border-radius:50%;border:3px solid #faf8f3;box-shadow:0 3px 10px rgba(26,58,107,.45)"></div>',
-    iconSize: [16, 16],
-    iconAnchor: [8, 8],
+    html: '<div style="background:#1a3a6b;color:#fff;width:28px;height:28px;border-radius:50%;border:3px solid #faf8f3;box-shadow:0 4px 12px rgba(26,58,107,.5);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;font-family:sans-serif">M</div>',
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
   });
 
-  CONFIG.mapPlaces.forEach(p => {
-    L.marker([p.lat, p.lng], { icon })
-      .addTo(map)
-      .bindPopup(`<strong style="font-family:serif;color:#1a3a6b;font-size:1rem">${p.label}</strong><br><em style="color:#555;font-size:.85rem">${p.note}</em>`);
+  const favorIcon = L.divIcon({
+    className: '',
+    html: '<div style="background:#c49a3c;color:#112647;width:28px;height:28px;border-radius:50%;border:3px solid #faf8f3;box-shadow:0 4px 12px rgba(196,154,60,.55);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;font-family:sans-serif">F</div>',
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
   });
 
-  // Ensure map tiles redraw crisply when scrolled into view
+  // Abuja marker (Musty)
+  L.marker(abujaCoords, { icon: mustyIcon })
+    .addTo(map)
+    .bindPopup('<strong style="font-family:serif;color:#1a3a6b;font-size:1.05rem">📍 Abuja (Musty)</strong><br><span style="color:#555;font-size:.85rem">Counting down every day till I see you again. Missing you like crazy from the capital. 💙</span>');
+
+  // Offa marker (Favor)
+  L.marker(offaCoords, { icon: favorIcon })
+    .addTo(map)
+    .bindPopup('<strong style="font-family:serif;color:#c49a3c;font-size:1.05rem">👑 Offa (Favor)</strong><br><span style="color:#555;font-size:.85rem">Where the prettiest 20-year-old is celebrating today! The star of Kwara State & everywhere else. ✨</span>');
+
+  // Romantic connecting bridge across Nigeria
+  const bridgeLine = L.polyline([abujaCoords, offaCoords], {
+    color: '#1a3a6b',
+    weight: 3,
+    opacity: 0.85,
+    dashArray: '8, 10',
+  }).addTo(map);
+
+  bridgeLine.bindPopup('<div style="text-align:center"><strong style="color:#1a3a6b">Abuja ✈️ Offa</strong><br><span style="font-size:.82rem;color:#666">~320 km apart &bull; 0 km between hearts</span></div>');
+
+  // Fit bounds so both cities are framed
+  map.fitBounds([abujaCoords, offaCoords], { padding: [45, 45] });
+
+  // Redraw when scrolled into view
   const mapObs = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
       map.invalidateSize();
+      map.fitBounds([abujaCoords, offaCoords], { padding: [45, 45] });
       mapObs.disconnect();
     }
   }, { threshold: 0.2 });
@@ -339,12 +376,16 @@ function animateStats() {
         numEl.textContent = val;
         if (val >= 20) clearInterval(t);
       }, 45);
-    } else if (txt.includes('100')) {
+    } else if (txt.includes('320')) {
       let val = 0;
       const t = setInterval(() => {
-        val += 5;
-        numEl.innerHTML = `${val}<small>%</small>`;
-        if (val >= 100) clearInterval(t);
+        val += 20;
+        if (val >= 320) {
+          numEl.innerHTML = `320<small>km</small>`;
+          clearInterval(t);
+        } else {
+          numEl.innerHTML = `${val}<small>km</small>`;
+        }
       }, 35);
     } else if (txt.includes('365')) {
       let val = 0;
