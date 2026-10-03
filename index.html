@@ -119,8 +119,23 @@
     setInterval(spawnHeart, 600);
     for (let i = 0; i < 6; i++) setTimeout(spawnHeart, i * 200);
   </script>
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script>
+    document.querySelector('.open-btn').addEventListener('click', function() {
+      confetti({
+        particleCount: 180,
+        spread: 90,
+        origin: { y: 0.55 },
+        colors: ['#1a3a6b','#d6e4f7','#faf8f3','#c49a3c','#2a5298']
+      });
+      setTimeout(function() {
+        confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1 } });
+      }, 350);
+    });
+  </script></body>
 </html>
+
 
 
 

@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
   <link rel="stylesheet" href="style.css">
   <script src="issue.js" defer></script>
 </head>
@@ -47,6 +49,12 @@
         <span>Birthday 2026 &nbsp;&#127881;</span>
       </div>
       <h1>FAVOR</h1>
+      
+      <div class="days-counter reveal">
+        <span class="counter-num" id="daysCount">20</span>
+        <span class="counter-label">big beautiful years of being you &#127881;</span>
+      </div>
+
       <div class="cover-photo">
         <img src="media/cover.jpg" alt="Favor, looking amazing as always" fetchpriority="high" width="1200" height="1800">
         <div class="cover-copy">
@@ -161,6 +169,22 @@
 
 
     <!-- MEMORIES -->
+
+
+    <!-- PLACES MAP -->
+    <section class="places section-pad" id="places" aria-labelledby="places-title">
+      <div class="section-rule">
+        <span class="eyebrow">07 / our places</span>
+        <span class="eyebrow">the spots that mean something</span>
+      </div>
+      <div class="section-heading">
+        <h2 id="places-title">Everywhere<br><em>we&rsquo;ve been.</em></h2>
+        <p>Every place holds<br>a little piece of this.</p>
+      </div>
+      <div id="placesMap" class="places-map" aria-label="Map of our special places"></div>
+      <p class="places-note eyebrow">&#128204; tap any pin to read the memory &mdash; <span style="color:var(--ink-lt)"><!-- MUSTY: update the coordinates in issue.js under MAP CONFIG --></span></p>
+    </section>
+
     <section class="memories section-pad" id="moments" aria-labelledby="moments-title">
       <div class="section-rule">
         <span class="eyebrow">04 / the personal archive</span>
@@ -259,6 +283,46 @@
     </section>
 
     <!-- HER IMPACT -->
+
+
+    <!-- MEMORY JAR -->
+    <section class="memory-jar section-pad" id="memory-jar" aria-labelledby="jar-title">
+      <div class="section-rule">
+        <span class="eyebrow">09 / memory jar</span>
+        <span class="eyebrow">tap each card to open</span>
+      </div>
+      <div class="section-heading">
+        <h2 id="jar-title">Little things<br><em>I keep.</em></h2>
+        <p>Six moments I wouldn&rsquo;t<br>trade for anything.</p>
+      </div>
+      <div class="jar-grid">
+        <div class="jar-card" data-flipped="false">
+          <div class="jar-face jar-front"><span class="jar-num">01</span><p>tap to open</p></div>
+          <div class="jar-face jar-back"><p>The first time you came over and we talked until neither of us noticed the time had gone.</p></div>
+        </div>
+        <div class="jar-card" data-flipped="false">
+          <div class="jar-face jar-front"><span class="jar-num">02</span><p>tap to open</p></div>
+          <div class="jar-face jar-back"><p>That laugh you do when something is genuinely funny &mdash; the one you honestly can&rsquo;t control.</p></div>
+        </div>
+        <div class="jar-card" data-flipped="false">
+          <div class="jar-face jar-front"><span class="jar-num">03</span><p>tap to open</p></div>
+          <div class="jar-face jar-back"><p>Every time you show up looking like that, acting like it&rsquo;s the most normal thing in the world.</p></div>
+        </div>
+        <div class="jar-card" data-flipped="false">
+          <div class="jar-face jar-front"><span class="jar-num">04</span><p>tap to open</p></div>
+          <div class="jar-face jar-back"><p>The way you make everything feel lighter just by being in the room. Not even trying. Just you.</p></div>
+        </div>
+        <div class="jar-card" data-flipped="false">
+          <div class="jar-face jar-front"><span class="jar-num">05</span><p>tap to open</p></div>
+          <div class="jar-face jar-back"><p>Every conversation that was supposed to end an hour ago &mdash; and still somehow didn&rsquo;t.</p></div>
+        </div>
+        <div class="jar-card" data-flipped="false">
+          <div class="jar-face jar-front"><span class="jar-num">06</span><p>tap to open</p></div>
+          <div class="jar-face jar-back"><p>The quiet moment I realised you were already my favourite person without me even deciding to make you that.</p></div>
+        </div>
+      </div>
+    </section>
+
     <section class="impact section-pad" id="impact" aria-labelledby="impact-title">
       <div class="section-rule">
         <span class="eyebrow">09 / her impact</span>
@@ -302,6 +366,45 @@
     </section>
 
     <!-- LOVE NOTES -->
+
+
+    <!-- FUN STATS -->
+    <section class="fun-stats section-pad" id="fun-stats" aria-labelledby="stats-title">
+      <div class="section-rule">
+        <span class="eyebrow">11 / by the numbers</span>
+        <span class="eyebrow">official and verified</span>
+      </div>
+      <div class="section-heading">
+        <h2 id="stats-title">The<br><em>statistics.</em></h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <span class="stat-num">&infin;</span>
+          <span class="stat-label">conversations that ran way too long</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-num">0</span>
+          <span class="stat-label">boring moments with you. not one.</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-num">1</span>
+          <span class="stat-label">person I&rsquo;d build an entire website for</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-num">20</span>
+          <span class="stat-label">years of being you &mdash; every single one counts</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-num">100<small>%</small></span>
+          <span class="stat-label">chance I&rsquo;m missing you right now</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-num">365<small>+</small></span>
+          <span class="stat-label">reasons to celebrate you, always</span>
+        </div>
+      </div>
+    </section>
+
     <section class="love-notes section-pad" id="love-notes" aria-labelledby="notes-title">
       <div class="section-rule">
         <span class="eyebrow">10 / love notes</span>
@@ -334,6 +437,66 @@
       </div>
     </section>
     <!-- LETTER -->
+
+
+    <!-- REASONS -->
+    <section class="reasons section-pad" id="reasons" aria-labelledby="reasons-title">
+      <div class="section-rule">
+        <span class="eyebrow">13 / reasons</span>
+        <span class="eyebrow">there are more, but here&rsquo;s ten</span>
+      </div>
+      <div class="section-heading">
+        <h2 id="reasons-title">Why I love<br><em>you. Really.</em></h2>
+      </div>
+      <div class="reasons-wrap">
+        <div class="reason-card active" data-reason="1">
+          <span class="reason-eyebrow">reason 01 of 10</span>
+          <p class="reason-text">Because your laugh takes over a whole room and you genuinely don&rsquo;t care who hears it. It&rsquo;s my favourite sound.</p>
+        </div>
+        <div class="reason-card" data-reason="2" hidden>
+          <span class="reason-eyebrow">reason 02 of 10</span>
+          <p class="reason-text">Because you work harder than anyone I know, quietly, without making a fuss. That kind of strength is rare.</p>
+        </div>
+        <div class="reason-card" data-reason="3" hidden>
+          <span class="reason-eyebrow">reason 03 of 10</span>
+          <p class="reason-text">Because you show up looking like that, every time, like it costs you nothing. It costs everyone else their attention.</p>
+        </div>
+        <div class="reason-card" data-reason="4" hidden>
+          <span class="reason-eyebrow">reason 04 of 10</span>
+          <p class="reason-text">Because a conversation with you never runs out of things to say. Ever. Even when it should have ended two hours ago.</p>
+        </div>
+        <div class="reason-card" data-reason="5" hidden>
+          <span class="reason-eyebrow">reason 05 of 10</span>
+          <p class="reason-text">Because you are genuinely, effortlessly funny. Not trying-to-be-funny. Actually funny. Evidence is on record.</p>
+        </div>
+        <div class="reason-card" data-reason="6" hidden>
+          <span class="reason-eyebrow">reason 06 of 10</span>
+          <p class="reason-text">Because you make every room feel different the moment you walk into it. Not in a loud way. Just in a &ldquo;she&rsquo;s here&rdquo; way.</p>
+        </div>
+        <div class="reason-card" data-reason="7" hidden>
+          <span class="reason-eyebrow">reason 07 of 10</span>
+          <p class="reason-text">Because watching how you chase your goals makes me want to be better at everything I do. You inspire me without even knowing it.</p>
+        </div>
+        <div class="reason-card" data-reason="8" hidden>
+          <span class="reason-eyebrow">reason 08 of 10</span>
+          <p class="reason-text">Because you are kind in a way that doesn&rsquo;t demand attention for it. You just do it. That&rsquo;s rare and it&rsquo;s beautiful.</p>
+        </div>
+        <div class="reason-card" data-reason="9" hidden>
+          <span class="reason-eyebrow">reason 09 of 10</span>
+          <p class="reason-text">Because even the ordinary moments &mdash; sitting, talking, doing nothing &mdash; feel like something worth holding onto when you&rsquo;re there.</p>
+        </div>
+        <div class="reason-card" data-reason="10" hidden>
+          <span class="reason-eyebrow">reason 10 of 10</span>
+          <p class="reason-text">Because you&rsquo;re you. Completely, wonderfully, entirely you. And that is more than enough. That&rsquo;s everything. &#10084;&#65039;</p>
+        </div>
+        <div class="reason-nav">
+          <button class="reason-btn" id="reasonPrev" aria-label="Previous reason">&larr;</button>
+          <span class="reason-progress" id="reasonProgress">1 &mdash; 10</span>
+          <button class="reason-btn" id="reasonNext" aria-label="Next reason">&rarr;</button>
+        </div>
+      </div>
+    </section>
+
     <section class="letter section-pad" id="letter" aria-labelledby="letter-title">
       <div class="section-rule">
         <span class="eyebrow">05 / the letter</span>
@@ -361,6 +524,65 @@
     </section>
 
     <!-- CLOSING -->
+
+
+    <!-- SECRET PASSWORD -->
+    <section class="secret section-pad" id="secret" aria-labelledby="secret-title">
+      <div class="section-rule">
+        <span class="eyebrow">15 / for your eyes only</span>
+        <span class="eyebrow">he left something hidden</span>
+      </div>
+      <div class="section-heading">
+        <h2 id="secret-title">There&rsquo;s one more<br><em>thing hidden.</em></h2>
+        <p>He left you a secret.<br>You know the password.</p>
+      </div>
+      <div class="secret-box">
+        <div class="secret-lock" id="secretLock">
+          <input type="password" id="secretInput" class="secret-input" placeholder="enter the password&hellip;" autocomplete="off" aria-label="Secret password">
+          <button class="secret-submit" id="secretSubmit">unlock &#128274;</button>
+          <p class="secret-hint" id="secretHint"></p>
+        </div>
+        <div class="secret-content" id="secretContent" hidden>
+          <span class="note-mark">&ldquo;</span>
+          <!-- MUSTY: Edit the message below and set your password in issue.js under SECRET CONFIG -->
+          <p>If you&rsquo;re reading this, you figured out the password. Which means you know me better than I gave you credit for.</p>
+          <p>I want you to know something I don&rsquo;t say enough &mdash; you make everything better. Not sometimes. Always. Even on the days when everything else feels heavy, just knowing you&rsquo;re there makes it lighter. I don&rsquo;t take that for granted. Not even a little bit.</p>
+          <p>Thank you for being exactly who you are. Happy birthday, my baby. &#10084;&#65039;</p>
+          <span class="note-author">&mdash; Musty</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANNIVERSARY SEAL -->
+    <section class="anniversary section-pad" id="anniversary" aria-labelledby="anniv-title">
+      <div class="section-rule">
+        <span class="eyebrow">16 / sealed</span>
+        <span class="eyebrow">not yet. patience.</span>
+      </div>
+      <div class="section-heading">
+        <h2 id="anniv-title">Something waiting<br><em>for you.</em></h2>
+      </div>
+      <div class="anniv-box" id="annivBox">
+        <div class="anniv-sealed" id="annivSealed">
+          <div class="anniv-lock">&#128274;</div>
+          <p class="anniv-label">This section unlocks in</p>
+          <div class="anniv-countdown" id="annivCountdown">
+            <div class="anniv-unit"><span id="annivDays">--</span><small>days</small></div>
+            <div class="anniv-unit"><span id="annivHours">--</span><small>hours</small></div>
+            <div class="anniv-unit"><span id="annivMins">--</span><small>mins</small></div>
+          </div>
+          <p class="eyebrow" style="margin-top:1rem"><!-- MUSTY: Set the unlock date in issue.js under ANNIVERSARY CONFIG --></p>
+        </div>
+        <div class="anniv-content" id="annivContent" hidden>
+          <span class="note-mark">&ldquo;</span>
+          <p>If you&rsquo;re reading this, it means we made it to that day. And I&rsquo;m so glad we did.</p>
+          <p>I don&rsquo;t know exactly where we&rsquo;ll be when you read this, but I know one thing &mdash; I&rsquo;m still grateful for you. Still your biggest fan. Still the person who built you a whole website because I had zero chill and all the feelings.</p>
+          <p>Here&rsquo;s to whatever comes next. Together. &#10084;&#65039;</p>
+          <span class="note-author">&mdash; Musty</span>
+        </div>
+      </div>
+    </section>
+
     <section class="closing" aria-labelledby="closing-title">
       <span class="eyebrow">the next chapter is all yours.</span>
       <h2 id="closing-title">Happy birthday,<br><em>Favor.</em></h2>
@@ -379,6 +601,19 @@
         <span>With love, Musty.</span>
       </div>
     </section>
+
+
+    <!-- MUSIC PLAYER -->
+    <!-- MUSTY: Drop your song file as media/song.mp3 to enable music -->
+    <div class="music-player" id="musicPlayer" aria-label="Music player">
+      <audio id="bgMusic" loop preload="none">
+        <source src="media/song.mp3" type="audio/mpeg">
+      </audio>
+      <button class="music-btn" id="musicToggle" aria-label="Play music" title="Play our song">
+        <span class="music-icon">&#9654;</span>
+      </button>
+      <span class="music-label">our song</span>
+    </div>
 
   </main>
 </body>
