@@ -445,12 +445,12 @@ figure figcaption span:last-child { text-align: right; font-style: italic; }
 }
 .memory figcaption span:last-child { font-style: italic; }
 
-.childhood    { grid-column: 1 / 7; }
-.sunshine     { grid-column: 7 / 10; }
-.playful      { grid-column: 10 / 13; }
-.together     { grid-column: 1 / 5; }
-.memories-photo { grid-column: 5 / 9; }
-.evening      { grid-column: 9 / 13; }
+.childhood      { grid-column: 1 / 7; }
+.sunshine       { grid-column: 7 / 13; }
+.throwback-star { grid-column: 1 / 7; }
+.facetime-call  { grid-column: 7 / 13; }
+.memories-photo { grid-column: 1 / 7; }
+.evening        { grid-column: 7 / 13; }
 
 .childhood-pair {
   display: grid;
@@ -637,8 +637,8 @@ figure figcaption span:last-child { text-align: right; font-style: italic; }
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-  .childhood, .sunshine, .playful,
-  .together, .memories-photo, .evening { grid-column: span 1; }
+  .childhood, .sunshine, .throwback-star,
+  .facetime-call, .memories-photo, .evening { grid-column: span 1; }
 
   .childhood-pair { grid-template-columns: 1fr; }
 
