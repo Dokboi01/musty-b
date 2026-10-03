@@ -1,4 +1,4 @@
-﻿/* ─────────────────────────────────────────
+/* ─────────────────────────────────────────
    BOLAJI BIRTHDAY SITE — style.css
    Cream & Blue, friendly, warm, editorial
    ───────────────────────────────────────── */
@@ -1315,13 +1315,49 @@ figure figcaption span:last-child { text-align: right; font-style: italic; }
   flex-shrink: 0;
 }
 .music-btn:hover { background: rgba(255,255,255,.3); }
-.music-btn.playing .music-icon::before { content: '⏸'; }
+.music-btn.playing { background: #2a5298; }
 .music-label {
   font-size: .7rem;
   color: rgba(255,255,255,.7);
   letter-spacing: .08em;
   white-space: nowrap;
 }
+.music-embed {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  background: var(--blue);
+  padding: 8px 10px;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(26,58,107,.35);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 105;
+  animation: fadeIn .25s ease;
+}
+.music-embed[hidden] { display: none; }
+.music-embed iframe {
+  border-radius: 12px;
+  display: block;
+}
+.music-close {
+  background: rgba(255,255,255,.15);
+  border: none;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.music-close:hover { background: rgba(255,255,255,.3); }
 
 /* ── PLACES MAP ── */
 .places-map {

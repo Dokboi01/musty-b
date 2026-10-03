@@ -1,4 +1,4 @@
-﻿/* ─────────────────────────────────────────
+/* ─────────────────────────────────────────
    BOLAJI BIRTHDAY SITE — issue.js v2
    ───────────────────────────────────────── */
 
@@ -188,6 +188,9 @@ const CONFIG = {
     { lat: 6.5355, lng: 3.3087, label: 'Our favourite spot', note: 'This place is ours.' },
     { lat: 6.4698, lng: 3.5852, label: 'Where it all became real', note: 'Something shifted here.' },
   ],
+
+  // Spotify Love Song (Essence by Wizkid ft. Tems)
+  spotifyTrackId: '5FG7Tl93LdH117jEKYl3Cm',
 };
 // ─────────────────────────────────────────────────────────────────
 
@@ -200,24 +203,38 @@ if (daysEl) {
   daysEl.textContent = days > 0 ? days.toLocaleString() : '20';
 }
 
-// ── MUSIC PLAYER ──────────────────────────────────────────────────
-const musicToggle = document.getElementById('musicToggle');
-const bgMusic     = document.getElementById('bgMusic');
-const musicPlayer = document.getElementById('musicPlayer');
-if (musicToggle && bgMusic) {
-  let playing = false;
-  musicToggle.addEventListener('click', () => {
-    if (playing) {
-      bgMusic.pause();
-      musicToggle.querySelector('.music-icon').innerHTML = '&#9654;';
-      musicToggle.classList.remove('playing');
-    } else {
-      bgMusic.play().catch(() => {});
-      musicToggle.querySelector('.music-icon').innerHTML = '&#9646;&#9646;';
+// ── MUSIC PLAYER (Spotify Love Song) ─────────────────────────────
+const musicToggle  = document.getElementById('musicToggle');
+const musicEmbed   = document.getElementById('musicEmbed');
+const musicClose   = document.getElementById('musicClose');
+const spotifyFrame = document.getElementById('spotifyFrame');
+
+if (musicToggle && musicEmbed) {
+  function toggleMusic() {
+    const isHidden = musicEmbed.hasAttribute('hidden');
+    if (isHidden) {
+      if (spotifyFrame && !spotifyFrame.src && spotifyFrame.dataset.src) {
+        // Load on demand
+        const trackId = CONFIG.spotifyTrackId || '5FG7Tl93LdH117jEKYl3Cm';
+        spotifyFrame.src = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`;
+      }
+      musicEmbed.removeAttribute('hidden');
       musicToggle.classList.add('playing');
+    } else {
+      musicEmbed.setAttribute('hidden', '');
+      musicToggle.classList.remove('playing');
     }
-    playing = !playing;
-  });
+  }
+
+  musicToggle.addEventListener('click', toggleMusic);
+
+  if (musicClose) {
+    musicClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      musicEmbed.setAttribute('hidden', '');
+      musicToggle.classList.remove('playing');
+    });
+  }
 }
 
 // ── PLACES MAP ────────────────────────────────────────────────────

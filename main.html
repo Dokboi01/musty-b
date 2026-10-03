@@ -603,14 +603,23 @@
     </section>
 
 
-    <!-- MUSIC PLAYER -->
-    <!-- MUSTY: Drop your song file as media/song.mp3 to enable music -->
+    <!-- MUSIC PLAYER — Spotify embed popup -->
     <div class="music-player" id="musicPlayer" aria-label="Music player">
-      <audio id="bgMusic" loop preload="none">
-        <source src="media/song.mp3" type="audio/mpeg">
-      </audio>
-      <button class="music-btn" id="musicToggle" aria-label="Play music" title="Play our song">
-        <span class="music-icon">&#9654;</span>
+      <div class="music-embed" id="musicEmbed" hidden>
+        <!-- Essence by Wizkid ft. Tems — change track ID in CONFIG in issue.js -->
+        <iframe
+          id="spotifyFrame"
+          src=""
+          data-src="https://open.spotify.com/embed/track/5FG7Tl93LdH117jEKYl3Cm?utm_source=generator"
+          width="280" height="80" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          title="Essence by Wizkid ft. Tems">
+        </iframe>
+        <button class="music-close" id="musicClose" aria-label="Close player">&times;</button>
+      </div>
+      <button class="music-btn" id="musicToggle" aria-label="Play our song" title="Play our song">
+        <span class="music-icon">&#9835;</span>
       </button>
       <span class="music-label">our song</span>
     </div>
