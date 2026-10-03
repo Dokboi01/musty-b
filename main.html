@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
   <link rel="stylesheet" href="style.css">
   <script src="issue.js" defer></script>
 </head>
@@ -51,8 +52,11 @@
       <h1>FAVOR</h1>
       
       <div class="days-counter reveal">
-        <span class="counter-num" id="daysCount">20</span>
-        <span class="counter-label">big beautiful years of being you &#127881;</span>
+        <span class="counter-badge">The BIG 20 &bull; Chapter 2026</span>
+        <div class="counter-row">
+          <span class="counter-num" id="daysCount">7,305</span>
+          <span class="counter-label">days of Favor blessing the world &amp; counting &#10024;</span>
+        </div>
       </div>
 
       <div class="cover-photo">
@@ -128,7 +132,7 @@
     <!-- OUR STORY -->
     <section class="our-story section-pad" id="our-story" aria-labelledby="story-title">
       <div class="section-rule">
-        <span class="eyebrow">06 / our story</span>
+        <span class="eyebrow">04 / our story</span>
         <span class="eyebrow">in his own words</span>
       </div>
       <div class="section-heading">
@@ -168,13 +172,10 @@
     </section>
 
 
-    <!-- MEMORIES -->
-
-
     <!-- PLACES MAP -->
     <section class="places section-pad" id="places" aria-labelledby="places-title">
       <div class="section-rule">
-        <span class="eyebrow">07 / our places</span>
+        <span class="eyebrow">05 / our places</span>
         <span class="eyebrow">the spots that mean something</span>
       </div>
       <div class="section-heading">
@@ -182,12 +183,13 @@
         <p>Every place holds<br>a little piece of this.</p>
       </div>
       <div id="placesMap" class="places-map" aria-label="Map of our special places"></div>
-      <p class="places-note eyebrow">&#128204; tap any pin to read the memory &mdash; <span style="color:var(--ink-lt)"><!-- MUSTY: update the coordinates in issue.js under MAP CONFIG --></span></p>
+      <p class="places-note eyebrow">&#128204; tap any pin to read the memory &mdash; Lagos, Nigeria</p>
     </section>
 
+    <!-- MEMORIES -->
     <section class="memories section-pad" id="moments" aria-labelledby="moments-title">
       <div class="section-rule">
-        <span class="eyebrow">04 / the personal archive</span>
+        <span class="eyebrow">06 / the personal archive</span>
         <span class="eyebrow">a few favourite frames</span>
       </div>
       <div class="section-heading">
@@ -239,7 +241,7 @@
     <!-- TIMELINE -->
     <section class="timeline-section section-pad" id="timeline" aria-labelledby="timeline-title">
       <div class="section-rule">
-        <span class="eyebrow">08 / the timeline</span>
+        <span class="eyebrow">07 / the timeline</span>
         <span class="eyebrow">chapter by chapter</span>
       </div>
       <div class="section-heading">
@@ -282,13 +284,10 @@
       </div>
     </section>
 
-    <!-- HER IMPACT -->
-
-
     <!-- MEMORY JAR -->
     <section class="memory-jar section-pad" id="memory-jar" aria-labelledby="jar-title">
       <div class="section-rule">
-        <span class="eyebrow">09 / memory jar</span>
+        <span class="eyebrow">08 / memory jar</span>
         <span class="eyebrow">tap each card to open</span>
       </div>
       <div class="section-heading">
@@ -323,6 +322,7 @@
       </div>
     </section>
 
+    <!-- HER IMPACT -->
     <section class="impact section-pad" id="impact" aria-labelledby="impact-title">
       <div class="section-rule">
         <span class="eyebrow">09 / her impact</span>
@@ -365,13 +365,10 @@
       </div>
     </section>
 
-    <!-- LOVE NOTES -->
-
-
     <!-- FUN STATS -->
     <section class="fun-stats section-pad" id="fun-stats" aria-labelledby="stats-title">
       <div class="section-rule">
-        <span class="eyebrow">11 / by the numbers</span>
+        <span class="eyebrow">10 / by the numbers</span>
         <span class="eyebrow">official and verified</span>
       </div>
       <div class="section-heading">
@@ -405,9 +402,10 @@
       </div>
     </section>
 
+    <!-- LOVE NOTES -->
     <section class="love-notes section-pad" id="love-notes" aria-labelledby="notes-title">
       <div class="section-rule">
-        <span class="eyebrow">10 / love notes</span>
+        <span class="eyebrow">11 / love notes</span>
         <span class="eyebrow">things he means, even when he doesn&rsquo;t say them</span>
       </div>
       <div class="section-heading">
@@ -436,13 +434,10 @@
         </div>
       </div>
     </section>
-    <!-- LETTER -->
-
-
     <!-- REASONS -->
     <section class="reasons section-pad" id="reasons" aria-labelledby="reasons-title">
       <div class="section-rule">
-        <span class="eyebrow">13 / reasons</span>
+        <span class="eyebrow">12 / reasons</span>
         <span class="eyebrow">there are more, but here&rsquo;s ten</span>
       </div>
       <div class="section-heading">
@@ -497,9 +492,10 @@
       </div>
     </section>
 
+    <!-- THE LETTER -->
     <section class="letter section-pad" id="letter" aria-labelledby="letter-title">
       <div class="section-rule">
-        <span class="eyebrow">05 / the letter</span>
+        <span class="eyebrow">13 / the letter</span>
         <span class="eyebrow">from Musty, with all the love</span>
       </div>
       <div class="letter-grid">
@@ -507,7 +503,7 @@
           <h2 id="letter-title">A few things.<br><em>Just this once.</em></h2>
           <figure class="reveal">
             <img src="media/smile.jpg" alt="Favor laughing" width="1000" height="1500" loading="lazy">
-            <figcaption>For B. Happy Birthday.</figcaption>
+            <figcaption>For Favor. Happy Birthday.</figcaption>
           </figure>
         </div>
         <div class="letter-body">
@@ -523,13 +519,10 @@
       </div>
     </section>
 
-    <!-- CLOSING -->
-
-
     <!-- SECRET PASSWORD -->
     <section class="secret section-pad" id="secret" aria-labelledby="secret-title">
       <div class="section-rule">
-        <span class="eyebrow">15 / for your eyes only</span>
+        <span class="eyebrow">14 / for your eyes only</span>
         <span class="eyebrow">he left something hidden</span>
       </div>
       <div class="section-heading">
@@ -556,7 +549,7 @@
     <!-- ANNIVERSARY SEAL -->
     <section class="anniversary section-pad" id="anniversary" aria-labelledby="anniv-title">
       <div class="section-rule">
-        <span class="eyebrow">16 / sealed</span>
+        <span class="eyebrow">15 / sealed</span>
         <span class="eyebrow">not yet. patience.</span>
       </div>
       <div class="section-heading">
@@ -570,6 +563,7 @@
             <div class="anniv-unit"><span id="annivDays">--</span><small>days</small></div>
             <div class="anniv-unit"><span id="annivHours">--</span><small>hours</small></div>
             <div class="anniv-unit"><span id="annivMins">--</span><small>mins</small></div>
+            <div class="anniv-unit"><span id="annivSecs">--</span><small>secs</small></div>
           </div>
           <p class="eyebrow" style="margin-top:1rem"><!-- MUSTY: Set the unlock date in issue.js under ANNIVERSARY CONFIG --></p>
         </div>
@@ -583,8 +577,9 @@
       </div>
     </section>
 
+    <!-- CLOSING -->
     <section class="closing" aria-labelledby="closing-title">
-      <span class="eyebrow">the next chapter is all yours.</span>
+      <span class="eyebrow">16 / the next chapter</span>
       <h2 id="closing-title">Happy birthday,<br><em>Favor.</em></h2>
       <p>There&rsquo;s one more thing he wanted to say&hellip;</p>
       <button id="reveal-answer" aria-expanded="false" aria-controls="honest-answer">
@@ -603,27 +598,52 @@
     </section>
 
 
-    <!-- MUSIC PLAYER — Spotify embed popup -->
-    <div class="music-player" id="musicPlayer" aria-label="Music player">
+        <!-- MUSIC PLAYER — Romantic Music Suite -->
+    <div class="music-player" id="musicPlayer" aria-label="Love songs player">
       <div class="music-embed" id="musicEmbed" hidden>
-        <!-- Essence by Wizkid ft. Tems — change track ID in CONFIG in issue.js -->
+        <div class="music-header">
+          <div class="music-title-wrap">
+            <span class="music-badge">&#10084;&#65039; Our Love Songs</span>
+            <span class="music-now-playing" id="musicNowPlaying">Essence &bull; Wizkid ft. Tems</span>
+          </div>
+          <button class="music-close" id="musicClose" aria-label="Close music player">&times;</button>
+        </div>
+
+        <!-- Song Switcher Tabs -->
+        <div class="music-tabs" role="tablist" aria-label="Select love song">
+          <button class="song-tab active" data-track="5FG7Tl93LdH117jEKYl3Cm" data-title="Essence &bull; Wizkid ft. Tems">Essence 🇳🇬</button>
+          <button class="song-tab" data-track="47hsUYxvbTlBAN3sP9dEOd" data-title="Love Me JeJe &bull; Tems">Love Me JeJe 🤍</button>
+          <button class="song-tab" data-track="25Y23PZ6oN3Xo3W3Qz5H4Y" data-title="Die With A Smile &bull; Bruno Mars">Die With A Smile ✨</button>
+        </div>
+
         <iframe
           id="spotifyFrame"
           src=""
-          data-src="https://open.spotify.com/embed/track/5FG7Tl93LdH117jEKYl3Cm?utm_source=generator"
-          width="280" height="80" frameborder="0"
+          data-src="https://open.spotify.com/embed/track/5FG7Tl93LdH117jEKYl3Cm?utm_source=generator&theme=0"
+          width="100%" height="80" frameborder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-          title="Essence by Wizkid ft. Tems">
+          title="Romantic Birthday Love Song">
         </iframe>
-        <button class="music-close" id="musicClose" aria-label="Close player">&times;</button>
+
+        <!-- Instant Romantic Melody (runs anywhere via Web Audio without logins) -->
+        <div class="ambient-music-bar">
+          <button class="ambient-btn" id="ambientToggle">
+            <span class="ambient-icon">&#127929;</span>
+            <span class="ambient-text">Play Romantic Melody</span>
+          </button>
+          <span class="ambient-hint">Instant background chords</span>
+        </div>
       </div>
-      <button class="music-btn" id="musicToggle" aria-label="Play our song" title="Play our song">
+
+      <button class="music-btn" id="musicToggle" aria-label="Play our love songs" title="Play love songs">
+        <span class="eq-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
         <span class="music-icon">&#9835;</span>
       </button>
-      <span class="music-label">our song</span>
+      <span class="music-label">our songs</span>
     </div>
-
   </main>
 </body>
 </html>
